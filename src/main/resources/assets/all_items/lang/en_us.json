@@ -1,0 +1,21 @@
+{
+  "actionbar.all_items.timer": "%02dd %02dh %02dm %02ds",
+
+  "bossbar.all_items.collected_items": "Items collected: %1$s/%2$s",
+  "bossbar.all_items.next_item": "loading...",
+  "bossbar.all_items.finished": "Finished!",
+
+  "command.all_items.skipped": "%1$s skipped",
+  "command.all_items.already_started": "Game has already started",
+  "command.all_items.manually_updated": "Updated successfully. %1$s new items were added.",
+  "command.all_items.obtaining": "Obtain this item like this",
+  "command.all_items.obtaining_next": "Obtain the next item like this",
+  "command.all_items.obtaining_failed": "This item could not be found. It is likely not included in vanilla Minecraft.",
+
+  "item.all_items.all_items": "Collected Items",
+
+  "info.all_items.version_newer_items_added": "⚠ Game updated from %s to %s. %s new items were added to the collection list. Have fun :)",
+  "notification.all_items.collected_item": "%1$s collected %2$s",
+  "warning.all_items.version_older": "⚠ This world was last played on a newer version (%s) than the current one (%s). This could lead to unexpected behavior.",
+  "warning.all_items.version_uncomparable": "⚠ Could not compare last version (%s) with current version (%s)."
+}

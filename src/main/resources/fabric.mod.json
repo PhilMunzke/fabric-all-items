@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "all-items",
+	"version": "${version}",
+	"name": "All Items",
+	"description": "An item will appear on your screen and you must collect it. Collect all items this way to win. Holding an item in your hand counts as collecting it.",
+	"authors": [
+		"PizzaPost"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/all_items/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"de.pizzapost.all_items.AllItems"
+		],
+		"fabric-datagen": [
+			"de.pizzapost.all_items.AllItemsDataGenerator"
+		]
+	},
+	"mixins": [
+		"all-items.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
