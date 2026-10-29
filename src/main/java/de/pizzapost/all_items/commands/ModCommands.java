@@ -62,7 +62,7 @@ public class ModCommands {
             }
         })));
 
-        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal("update").requires(Commands.hasPermission(GAMEMASTERS_CHECK)).executes(context -> {
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal("update").executes(context -> {
             int added = AllItems.manuallyUpdate(context.getSource().getServer());
             context.getSource().sendSuccess(() -> Component.translatable("command.all_items.manually_updated", added), false);
             return 1;

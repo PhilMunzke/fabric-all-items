@@ -63,7 +63,7 @@ public class AllItems implements ModInitializer {
         Set<Item> knownItems = new HashSet<>(items);
         knownItems.addAll(collectedItemsList);
         List<Item> added = new ArrayList<>();
-        for (String id: newItems) {
+        for (String id : newItems) {
             Item item = resolveSavedItem(id);
             if (item == null) continue;
             if (blockedItems.contains(item.toString())) continue;
@@ -71,15 +71,15 @@ public class AllItems implements ModInitializer {
             items.add(item);
             added.add(item);
         }
-        maxItems+=added.size();
-        Item currentItem = !items.isEmpty() && !isFinished() ? items.getFirst(): null;
+        maxItems += added.size();
+        Item currentItem = !items.isEmpty() && !isFinished() ? items.getFirst() : null;
         Collections.shuffle(items, new Random(Objects.requireNonNull(server.getLevel(Level.OVERWORLD)).getSeed()));
-        if (currentItem!=null) {
+        if (currentItem != null) {
             items.remove(currentItem);
             items.addFirst(currentItem);
         }
         boolean finishedItemsChanged = false;
-        for (String id :  finishedItems) {
+        for (String id : finishedItems) {
             Item item = resolveSavedItem(id);
             if (item == null) continue;
             if (items.contains(item)) continue;
@@ -305,10 +305,7 @@ public class AllItems implements ModInitializer {
         LOGGER.info("handleVersionCheck: found {} new item(s) not in known pool", newItems.size());
 
         if (newItems.size() > knownItems.size()) {
-            LOGGER.warn("handleVersionCheck: about to add {} 'new' item(s), which is MORE than the {} item(s) already known from the save. " +
-                            "This usually means the save's item/collected-item lists were smaller than expected (e.g. corrupted or partially unresolved on load) " +
-                            "rather than a genuine version upgrade with that many new items. Check the loadData warnings above before trusting this result.",
-                    newItems.size(), knownItems.size());
+            LOGGER.warn("handleVersionCheck: about to add {} 'new' item(s), which is MORE than the {} item(s) already known from the save. " + "This usually means the save's item/collected-item lists were smaller than expected (e.g. corrupted or partially unresolved on load) " + "rather than a genuine version upgrade with that many new items. Check the loadData warnings above before trusting this result.", newItems.size(), knownItems.size());
         }
 
         if (!newItems.isEmpty()) {
@@ -345,13 +342,13 @@ public class AllItems implements ModInitializer {
         ModCommands.registerModCommands();
         ServerLifecycleEvents.SERVER_STARTED.register(AllItems::loadData);
         ServerTickEvents.END_LEVEL_TICK.register(world -> {
-            if (!started || items.isEmpty())  return;
+            if (!started || items.isEmpty()) return;
             for (ServerPlayer player : world.players()) {
                 Component collectedItemText = null;
                 String link = null;
                 ItemStack stack = player.getInventory().getSelectedItem();
                 Item held = stack.getItem();
-                if (!blockedItems.contains(held.toString()) &&stack.getItem() == items.getFirst()) {
+                if (!blockedItems.contains(held.toString()) && stack.getItem() == items.getFirst()) {
                     Component collector = player.getDisplayName().copy().withColor(TextColor.GOLD);
                     Component collectedItem = Component.translatable(stack.getItem().getDescriptionId()).copy().withColor(TextColor.GOLD);
                     collectedItemText = Component.translatable("notification.all_items.collected_item", collector, collectedItem);
@@ -493,7 +490,7 @@ public class AllItems implements ModInitializer {
         }
         maxItems = items.size();
         Collections.shuffle(items, new Random(Objects.requireNonNull(server.getLevel(Level.OVERWORLD)).getSeed()));
-        for (int i = 0; i <collected_items; i++) {
+        for (int i = 0; i < collected_items; i++) {
             items.removeFirst();
         }
         System.out.println("Shuffled items: " + items);
